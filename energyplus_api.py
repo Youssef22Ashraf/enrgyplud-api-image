@@ -24,6 +24,11 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # Set the ngrok auth token from the environment variable
 ngrok.set_auth_token(os.getenv("NGROK_AUTH_TOKEN"))
 
+# Root route
+@app.route('/')
+def index():
+    return "Welcome to the EnergyPlus API! Use /api/run-simulation to run a simulation."
+
 @app.route('/api/run-simulation', methods=['POST'])
 def run_simulation():
     try:
