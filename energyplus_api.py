@@ -99,7 +99,7 @@ def list_output_files():
 
 def start_server():
     # Start the Flask app
-    app.run(port=5000)
+    app.run(host='0.0.0.0', port=5000)  # Bind to all interfaces
 
 if __name__ == '__main__':
     # Start the server when the script is run
