@@ -23,7 +23,7 @@ ENV PATH="/usr/local/EnergyPlus:${PATH}"
 ENV ENERGYPLUS_DIR="/usr/local/EnergyPlus"
 
 # Install Python dependencies
-RUN pip3 install eppy flask pyngrok flask-cors python-dotenv gunicorn
+RUN pip3 install eppy flask pyngrok flask-cors python-dotenv
 
 # Create a directory for simulation output
 RUN mkdir -p /content/simulation_output
@@ -35,7 +35,7 @@ COPY energyplus_api.py .env /app/
 WORKDIR /app
 
 # Expose the port for Flask
-EXPOSE 8080
+EXPOSE 5000
 
-# Run the Flask application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "energyplus_api:app"]
+# Run the Flask application
+CMD ["python3", "energyplus_api.py"]

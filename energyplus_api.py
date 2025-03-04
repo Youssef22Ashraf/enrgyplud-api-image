@@ -104,7 +104,10 @@ def list_output_files():
 
 def start_server():
     # Start the Flask app
-    app.run(host='0.0.0.0', port=5000)  # Bind to all interfaces
+    #ngrok.set_auth_token(userdata.get('NGROK AUTH TOKEN' ))
+    #public_url = ngrok.connect(5000)
+    #print(f"public URL: {public_url}")
+    app.run(host='0.0.0.0', port=8080)  # Bind to all interfaces
 
 if __name__ == '__main__':
     # Start the server when the script is run
